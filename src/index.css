@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0B0D10;
+  --color-surface: #0F1115;
+  --color-card: #161A20;
+  --color-primary: #3B82F6;
+  --color-secondary: #9CA3AF;
+  --color-text: #F3F4F6;
+
+  --font-sans: Inter, sans-serif;
+
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@utility bg-background {
+  background-color: var(--color-background);
+}
+
+@utility text-text {
+  color: var(--color-text);
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text font-sans antialiased;
+  }
+}
+
+/* Custom Scrollbar for "Serious" feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-card rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/50;
+}
