@@ -1,27 +1,14 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
+
+const REGISTER_URL = 'https://clinic-system-frontend-mu.vercel.app/register';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
-    const navigate = useNavigate();
-
-    // Scroll to the Pricing section. If we're not on the home page,
-    // navigate there first, then scroll once it has rendered.
-    const handleSubscribe = () => {
-        setIsOpen(false);
-        if (location.pathname === '/') {
-            document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-        } else {
-            navigate('/');
-            setTimeout(() => {
-                document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' });
-            }, 100);
-        }
-    };
 
     // Check scroll position for background effect
     useEffect(() => {
@@ -68,13 +55,12 @@ const Navbar = () => {
                                 {link.name}
                             </Link>
                         ))}
-                        <button
-                            onClick={handleSubscribe}
-                            className="group px-5 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg text-sm font-medium transition-all flex items-center gap-2"
-                        >
-                            Subscribe
-                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        <a href={REGISTER_URL}>
+                            <button className="group px-5 py-2 bg-primary hover:bg-primary/90 text-white rounded-lg text-sm font-medium transition-all flex items-center gap-2">
+                                Subscribe
+                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </button>
+                        </a>
                     </nav>
 
                     {/* Mobile Menu Toggle (Visible when closed) */}
@@ -131,13 +117,12 @@ const Navbar = () => {
                                     </nav>
 
                                     <div className="px-3 mt-6">
-                                        <button
-                                            onClick={handleSubscribe}
-                                            className="group w-full px-4 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg text-base font-medium transition-all flex items-center justify-center gap-2"
-                                        >
-                                            Subscribe
-                                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </button>
+                                        <a href={REGISTER_URL} onClick={() => setIsOpen(false)}>
+                                            <button className="group w-full px-4 py-3 bg-primary hover:bg-primary/90 text-white rounded-lg text-base font-medium transition-all flex items-center justify-center gap-2">
+                                                Subscribe
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            </button>
+                                        </a>
                                     </div>
                                 </div>
 
