@@ -33,14 +33,8 @@ const Hero = () => {
                     </FadeIn>
 
                     <FadeIn delay={0.2} className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
-                        <a href="https://clinic-system-frontend-mu.vercel.app/register">
-                            <button className="group px-6 sm:px-8 py-3.5 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
-                                Subscribe
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                        </a>
                         <a href="/projects">
-                            <button className="px-6 sm:px-8 py-3.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg font-medium transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                            <button className="group px-6 sm:px-8 py-3.5 bg-primary hover:bg-primary/90 text-white rounded-lg font-medium transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
                                 View Projects
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </button>
